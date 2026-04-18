@@ -2,8 +2,11 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { PenTool, Boxes, Zap } from 'lucide-react';
 import styles from './Services.module.css';
+
+const easeCurve = [0.16, 1, 0.3, 1] as const;
 
 const containerVars = {
   hidden: { opacity: 0 },
@@ -17,9 +20,9 @@ const itemVars = {
   hidden: { opacity: 0, y: 40 },
   show: {
     opacity: 1, y: 0,
-    transition: { type: 'spring', stiffness: 180, damping: 22 },
+    transition: { type: 'spring' as const, stiffness: 180, damping: 22 },
   },
-};
+} satisfies Variants;
 
 export default function Services() {
   const t = useTranslations('Services');
@@ -52,7 +55,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.75, ease: easeCurve }}
         >
           <span className="sectionLabel">{t('title')}</span>
           <h2 className={styles.title}>

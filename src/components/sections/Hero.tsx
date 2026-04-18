@@ -6,6 +6,8 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import styles from './Hero.module.css';
 
+const easeCurve = [0.16, 1, 0.3, 1] as const;
+
 export default function Hero() {
   const t = useTranslations('Hero');
   const ref = useRef(null);
@@ -52,7 +54,7 @@ export default function Hero() {
                 className={styles.badge}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.7, delay: 0.05, ease: easeCurve }}
               >
                 <span className={styles.badgeDot} />
                 <span className={styles.badgeText}>{t('badge')}</span>
@@ -64,7 +66,7 @@ export default function Hero() {
                 variants={textVariants}
                 initial="hidden"
                 animate="show"
-                transition={{ duration: 0.85, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.85, delay: 0.18, ease: easeCurve }}
               >
                 {t('title').split(' ').map((word, i, arr) =>
                   i === arr.length - 1 ? (
@@ -81,7 +83,7 @@ export default function Hero() {
                 variants={textVariants}
                 initial="hidden"
                 animate="show"
-                transition={{ duration: 0.85, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.85, delay: 0.3, ease: easeCurve }}
               >
                 {t('subtitle')}
               </motion.p>
@@ -91,7 +93,7 @@ export default function Hero() {
                 className={styles.ctaGroup}
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.75, delay: 0.44, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.75, delay: 0.44, ease: easeCurve }}
               >
                 <a href="https://wa.me/201050242285" target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
                   {t('cta')}
@@ -126,7 +128,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: easeCurve }}
             className={styles.statsGrid}
           >
             <div className={styles.statItem}>

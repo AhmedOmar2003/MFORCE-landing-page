@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { Mail, Phone } from 'lucide-react';
 import styles from './Footer.module.css';
 
+const easeCurve = [0.16, 1, 0.3, 1] as const;
+
 export default function Footer() {
   const t = useTranslations('Footer');
 
@@ -18,7 +20,7 @@ export default function Footer() {
 
   const itemVars = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeCurve } },
   };
 
   return (

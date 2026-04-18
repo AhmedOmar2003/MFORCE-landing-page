@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, CheckCircle2 } from 'lucide-react';
 import styles from './InstantQuote.module.css';
 
+const easeCurve = [0.16, 1, 0.3, 1] as const;
+
 export default function InstantQuote() {
   const t = useTranslations('Quote');
   const [submitted, setSubmitted] = useState(false);
@@ -50,7 +52,7 @@ export default function InstantQuote() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, ease: easeCurve }}
         >
           <span className="sectionLabel">{t('title')}</span>
           <h2 className={styles.title}>{t('title')}</h2>
@@ -63,7 +65,7 @@ export default function InstantQuote() {
           initial={{ opacity: 0, y: 40, scale: 0.98 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, ease: easeCurve }}
         >
           <AnimatePresence mode="wait">
             {submitted ? (

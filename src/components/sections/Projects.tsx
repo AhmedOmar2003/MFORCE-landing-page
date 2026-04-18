@@ -2,8 +2,11 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import Image from 'next/image';
 import styles from './Projects.module.css';
+
+const easeCurve = [0.16, 1, 0.3, 1] as const;
 
 export default function Projects() {
   const t = useTranslations('Projects');
@@ -38,9 +41,9 @@ export default function Projects() {
     hidden: { opacity: 0, y: 40, scale: 0.96 },
     show: {
       opacity: 1, y: 0, scale: 1,
-      transition: { type: 'spring', stiffness: 160, damping: 22 },
+      transition: { type: 'spring' as const, stiffness: 160, damping: 22 },
     },
-  };
+  } satisfies Variants;
 
   return (
     <section id="projects" className={`section ${styles.projectsSection}`}>
@@ -52,7 +55,7 @@ export default function Projects() {
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, ease: easeCurve }}
         >
           <div className={styles.headerLeft}>
             <span className="sectionLabel">{t('title')}</span>
