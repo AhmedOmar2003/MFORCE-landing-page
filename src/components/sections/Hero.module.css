@@ -1,0 +1,354 @@
+/* ═══════════════════════════════
+   HERO SECTION
+═══════════════════════════════ */
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 720px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ── Parallax Background ── */
+.bgImageWrap {
+  position: absolute;
+  inset: -12% 0 -12% 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bgImageNext {
+  object-fit: cover;
+  object-position: center 30%;
+  filter: brightness(0.92);
+}
+
+/* ── Multi-layer overlay for depth ── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      105deg,
+      rgba(4, 4, 8, 0.88) 0%,
+      rgba(4, 4, 8, 0.62) 45%,
+      rgba(4, 4, 8, 0.22) 100%
+    ),
+    linear-gradient(
+      to top,
+      rgba(4, 4, 8, 0.7) 0%,
+      transparent 40%
+    );
+}
+
+html[dir='rtl'] .overlay {
+  background:
+    linear-gradient(
+      255deg,
+      rgba(4, 4, 8, 0.88) 0%,
+      rgba(4, 4, 8, 0.62) 45%,
+      rgba(4, 4, 8, 0.22) 100%
+    ),
+    linear-gradient(to top, rgba(4, 4, 8, 0.7) 0%, transparent 40%);
+}
+
+/* Subtle gold vignette accent */
+.overlay::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--primary) 40%,
+    var(--primary) 60%,
+    transparent 100%
+  );
+  opacity: 0.6;
+}
+
+/* ── Content ── */
+.heroContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding-top: 80px;
+}
+
+.flexCenter {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.textWrap {
+  max-width: 820px;
+  color: #fff;
+}
+
+/* ── Eyebrow Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 18px 9px 12px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-full);
+  margin-bottom: 28px;
+}
+
+.badgeDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 3px rgba(192, 138, 62, 0.28), 0 0 12px var(--primary);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(192,138,62,0.28), 0 0 12px var(--primary); }
+  50%       { box-shadow: 0 0 0 6px rgba(192,138,62,0.14), 0 0 20px var(--primary); }
+}
+
+.badgeText {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ── Headline ── */
+.title {
+  font-size: clamp(2.4rem, 7.5vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.06;
+  margin-bottom: 26px;
+  letter-spacing: -0.04em;
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, #e8b96a 0%, var(--primary) 50%, #a0702a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Subtitle ── */
+.subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 300;
+  margin-bottom: 40px;
+  opacity: 0.82;
+  line-height: 1.7;
+  max-width: 600px;
+  letter-spacing: 0.01em;
+}
+
+/* ── CTA Row ── */
+.ctaGroup {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 17px 38px;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: #fff;
+  box-shadow: var(--shadow-gold-lg);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.02em;
+}
+
+.primaryBtn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transition: left 0.6s var(--ease-out);
+}
+
+.primaryBtn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 50px rgba(192, 138, 62, 0.5);
+}
+
+.primaryBtn:hover::before { left: 100%; }
+
+.secondaryBtn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: rgba(255,255,255,0.92);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  transition: all var(--transition-fast);
+}
+
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.arrowIcon {
+  transition: transform var(--transition-fast);
+}
+html[dir='rtl'] .arrowIcon {
+  transform: scaleX(-1);
+}
+
+.primaryBtn:hover .arrowIcon,
+.secondaryBtn:hover .arrowIcon {
+  transform: translateX(4px);
+}
+
+html[dir='rtl'] .primaryBtn:hover .arrowIcon,
+html[dir='rtl'] .secondaryBtn:hover .arrowIcon {
+  transform: translateX(-4px) scaleX(-1);
+}
+
+/* ── Scroll Hint ── */
+.scrollHint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.5;
+  animation: scrollBounce 2.5s ease-in-out infinite;
+  z-index: 3;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.8), transparent);
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ═══════════════════════════════
+   STATS BAR
+═══════════════════════════════ */
+.statsSection {
+  background: var(--surface);
+  padding: 56px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 10;
+}
+
+/* Subtle gold accent line at top of stats */
+.statsSection::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  opacity: 0.4;
+  border-radius: 2px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  padding: 8px;
+}
+
+.statNum {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #e0a84a 0%, var(--primary) 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.statText {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+.statSeparator {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--border-strong), transparent);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .statsGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+  }
+  .statSeparator { display: none; }
+  .statsSection { padding: 44px 0; }
+}
+
+@media (max-width: 580px) {
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 16px;
+  }
+  .statItem:last-child {
+    grid-column: 1 / -1;
+  }
+  .heroSection { min-height: 640px; }
+  .ctaGroup { flex-direction: column; align-items: flex-start; }
+  .primaryBtn, .secondaryBtn { width: 100%; justify-content: center; }
+}

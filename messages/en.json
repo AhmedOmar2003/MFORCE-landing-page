@@ -1,0 +1,89 @@
+{
+  "Hero": {
+    "title": "Architecting Tomorrow.",
+    "subtitle": "We don’t just build structures; we manifest your greatest ambitions in steel, concrete, and glass. Precision engineering at a massive scale.",
+    "cta": "Contact Us",
+    "projects": "Explore Projects",
+    "stat1_num": "20+",
+    "stat1_text": "Years of Excellence",
+    "stat2_num": "150+",
+    "stat2_text": "Global Projects",
+    "stat3_num": "Top 10",
+    "stat3_text": "Design Awards",
+    "badge": "MFORCE Engineering"
+  },
+  "Nav": {
+    "about": "Vision",
+    "services": "Expertise",
+    "projects": "Portfolio",
+    "why_us": "Legacy",
+    "contact": "Get a Quote",
+    "switch_lang": "العربية"
+  },
+  "Services": {
+    "title": "Unrivaled",
+    "title_accent": "Expertise.",
+    "subtitle": "Delivering iconic architecture, robust engineering, and master-crafted interiors tailored to those who demand absolute perfection.",
+    "learn_more": "Learn More",
+    "list": {
+      "design": "Architectural Design",
+      "design_desc": "Creating timeless, gravity-defying concepts that redefine global cityscapes.",
+      "interior": "Luxury Interiors",
+      "interior_desc": "Crafting transcendent spatial experiences using the world's finest materials.",
+      "mechanical": "Advanced MEP Engineering",
+      "mechanical_desc": "Integrating intelligent, invisible electro-mechanical systems that breathe life into structures."
+    }
+  },
+  "Projects": {
+    "title": "Engineering",
+    "title_accent": "Marvels.",
+    "view_all": "View All Projects",
+    "c1": "High-Rise Tower",
+    "c2": "Commercial Complex",
+    "c3": "Luxury Residential",
+    "p1": "The Apex Tower",
+    "p2": "Silicon Valley Hub",
+    "p3": "Elysian Residences"
+  },
+  "Quote": {
+    "title": "Instant Free Quote",
+    "subtitle": "Answer a few quick questions to estimate your project cost. Our team will contact you shortly with a detailed proposal.",
+    "card_title": "Fill Your Details",
+    "card_subtitle": "All information is handled with absolute confidentiality.",
+    "service_type": "Required Service",
+    "service_construction": "Construction & Building",
+    "service_finishing": "High-End Finishing",
+    "service_restoration": "Restoration & Renovation",
+    "service_management": "Project Management",
+    "service_other": "Other",
+    "area_size": "Estimated Area (m²)",
+    "area_small": "Less than 100 m²",
+    "area_medium": "100 - 500 m²",
+    "area_large": "More than 500 m²",
+    "project_status": "Current Project Status",
+    "status_idea": "Idea (Needs Design)",
+    "status_ready": "Design is Ready",
+    "status_existing": "Existing Project (Renovation)",
+    "email": "Email Address (Optional)",
+    "phone": "Phone / WhatsApp Number",
+    "email_placeholder": "Enter your email address",
+    "phone_placeholder": "Enter your mobile number",
+    "submit": "Get Your Quote Now",
+    "footer_note": "Join MFORCE's prestigious clients to execute high-quality projects from global standards.",
+    "success_title": "Sent Successfully",
+    "success_text": "Please wait.. we will reply to you shortly via Email or WhatsApp."
+  },
+  "Footer": {
+    "desc": "Building the Future with Precision. Delivering world-class construction and engineering globally.",
+    "links": "Links",
+    "contact": "Contact",
+    "about": "About Us",
+    "services": "Services",
+    "projects": "Projects",
+    "rights": "© 2026 MFORCE. All rights reserved."
+  },
+  "CTA": {
+    "title": "Looking for a reliable partner for your next project?",
+    "button": "Contact Us Now"
+  }
+}

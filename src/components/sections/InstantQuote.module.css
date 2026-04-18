@@ -1,0 +1,372 @@
+/* ═══════════════════════════════
+   INSTANT QUOTE SECTION
+═══════════════════════════════ */
+.quoteSection {
+  background: var(--surface-alt);
+  padding-block: var(--space-14);
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background gradient glow */
+.quoteSection::before {
+  content: '';
+  position: absolute;
+  top: -20%; left: -10%;
+  width: 60%; height: 60%;
+  background: radial-gradient(circle at center, rgba(192, 138, 62, 0.05) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.quoteSection::after {
+  content: '';
+  position: absolute;
+  bottom: -20%; right: -10%;
+  width: 50%; height: 50%;
+  background: radial-gradient(circle at center, rgba(192, 138, 62, 0.05) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 56px auto;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 900;
+  margin-bottom: 20px;
+  letter-spacing: -0.04em;
+  color: var(--foreground);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ── Card ── */
+.card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--border);
+  padding: 56px;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.dark .quoteSection::before,
+.dark .quoteSection::after {
+  display: none;
+}
+
+.dark .card {
+  background: var(--surface-alt);
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.dark .inputInner {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.dark .pillLabel {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.dark .pillLabel:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--primary);
+}
+
+/* Subtle glow inside card */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cardHeader {
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 28px;
+  margin-bottom: 40px;
+}
+
+.cardTitle {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+.cardSubtitle {
+  font-size: 0.95rem;
+  color: var(--text-subtle);
+}
+
+/* ── Form ── */
+.formSections {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legend {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  display: block;
+  color: var(--foreground);
+  letter-spacing: -0.01em;
+}
+
+.pillGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Pill Radios ── */
+.pillLabel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+  box-shadow: var(--shadow-xs);
+}
+
+.pillLabel:hover {
+  border-color: rgba(192, 138, 62, 0.4);
+  color: var(--foreground);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.pillActive {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff !important;
+  box-shadow: var(--shadow-gold), inset 0 -2px 0 rgba(0,0,0,0.1);
+}
+.pillActive:hover {
+  transform: translateY(0);
+}
+
+.pillLabel:focus-within {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ── Inputs ── */
+.inputsSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 12px;
+}
+
+.inputWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: start;
+}
+
+.inputLabel {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--foreground);
+  letter-spacing: -0.01em;
+}
+
+.required {
+  color: #fca5a5;
+  margin-inline-start: 4px;
+  display: inline-block;
+}
+
+.inputInner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--surface-alt);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.inputInner:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-light);
+  background: var(--surface);
+}
+
+.inputIcon {
+  position: absolute;
+  color: var(--text-subtle);
+  transition: color var(--transition-fast);
+}
+
+.inputInner:focus-within .inputIcon { color: var(--primary); }
+
+html[dir="rtl"] .inputIcon { left: auto; right: 18px; }
+html[dir="ltr"] .inputIcon { left: 18px; right: auto; }
+
+.inputField {
+  width: 100%;
+  padding: 16px;
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.inputField::placeholder {
+  color: var(--text-subtle);
+  font-weight: 400;
+}
+
+html[dir="rtl"] .inputField { padding-right: 50px; padding-left: 18px; }
+html[dir="ltr"] .inputField { padding-left: 50px; padding-right: 18px; }
+.inputField:focus { outline: none; }
+
+/* ── Submit Button ── */
+.submitBtn {
+  width: 100%;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  padding: 20px;
+  border-radius: var(--radius-xl);
+  margin-top: 56px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-gold-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.submitBtn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s var(--ease-out);
+}
+
+.submitBtn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 24px 40px rgba(192, 138, 62, 0.45);
+}
+
+.submitBtn:hover::before { left: 100%; }
+
+.footerNote {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-subtle);
+  margin-top: 24px;
+  line-height: 1.6;
+}
+
+/* ── Success Message ── */
+.successMessage {
+  text-align: center;
+  padding: 64px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.successCircle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  box-shadow: inset 0 0 0 2px rgba(34, 197, 94, 0.2);
+}
+
+.successIcon {
+  color: #22c55e;
+}
+
+.successTitle {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--foreground);
+}
+
+.successText {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .inputsSection { grid-template-columns: 1fr; }
+  .card { padding: 48px 32px; }
+}
+
+@media (max-width: 600px) {
+  .card { padding: 36px 24px; border-radius: var(--radius-lg); }
+  .pillLabel { width: 100%; }
+}

@@ -1,0 +1,209 @@
+/* ═══════════════════════════════
+   PROJECTS SECTION
+═══════════════════════════════ */
+.projectsSection {
+  background: var(--surface);
+  padding-block: var(--section-py);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 56px;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.headerLeft { flex: 1; }
+
+.sectionTitle {
+  font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--foreground);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 0;
+}
+
+.titleAccent { color: var(--primary); }
+
+.viewAllBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border: 1.5px solid rgba(192, 138, 62, 0.35);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.viewAllBtn:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+html[dir='rtl'] .viewAllBtn svg {
+  transform: scaleX(-1);
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Card ── */
+.projectCard {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--surface-dark);
+  aspect-ratio: 3 / 4;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-medium), transform var(--transition-medium);
+}
+
+.projectCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Removed aspect-ratio override for first child */
+
+/* ── Image ── */
+.imageWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.projectImg {
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.projectCard:hover .projectImg { transform: scale(1.07); }
+
+/* ── Gradient overlay ── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(4, 4, 8, 0.94) 0%,
+    rgba(4, 4, 8, 0.4)  45%,
+    transparent         100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 32px 28px;
+  transition: opacity var(--transition-medium);
+}
+
+/* ── Card Index Tag ── */
+.cardIndex {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+html[dir='rtl'] .cardIndex { left: auto; right: 20px; }
+
+/* ── Card Content ── */
+.projectCategory {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all var(--transition-medium);
+}
+
+.projectCard:hover .projectCategory {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.projectTitle {
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  transform: translateY(14px);
+  transition: transform var(--transition-medium);
+}
+
+.projectCard:hover .projectTitle { transform: translateY(0); }
+
+.projectArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  margin-top: 16px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all var(--transition-medium);
+  box-shadow: var(--shadow-gold);
+}
+
+.projectCard:hover .projectArrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html[dir='rtl'] .projectArrow svg {
+  transform: scaleX(-1);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .projectCard {
+    aspect-ratio: 4 / 3;
+  }
+  .header { flex-direction: column; align-items: flex-start; }
+}

@@ -1,0 +1,170 @@
+/* ═══════════════════════════════
+   SERVICES SECTION
+═══════════════════════════════ */
+.servicesSection {
+  background: var(--background);
+  padding-block: var(--section-py);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle decorative dot-grid background */
+.servicesSection::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 45%;
+  height: 100%;
+  background-image: radial-gradient(circle, var(--border-strong) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.45;
+  pointer-events: none;
+}
+html[dir='rtl'] .servicesSection::before { right: auto; left: 0; }
+
+/* ── Section Header ── */
+.header {
+  max-width: 620px;
+  margin-bottom: 72px;
+}
+
+.title {
+  font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--foreground);
+  margin-bottom: 18px;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.titleAccent {
+  color: var(--primary);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  padding: 44px 36px 40px;
+  border: 1px solid var(--border);
+  transition:
+    transform var(--transition-medium),
+    box-shadow var(--transition-medium),
+    border-color var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Card top accent bar */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), #e8c07a);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-medium);
+  border-radius: 0 0 2px 2px;
+}
+html[dir='rtl'] .card::before { transform-origin: right; }
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl), 0 0 0 1px var(--primary-light);
+  border-color: rgba(192, 138, 62, 0.25);
+}
+
+.card:hover::before { transform: scaleX(1); }
+
+/* ── Icon Box ── */
+.iconBox {
+  width: 64px;
+  height: 64px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  transition: all var(--transition-fast);
+  border: 1px solid rgba(192, 138, 62, 0.2);
+}
+
+.card:hover .iconBox {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: var(--shadow-gold);
+  border-color: transparent;
+  transform: rotate(-6deg) scale(1.08);
+}
+
+/* ── Card Text ── */
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+  transition: color var(--transition-fast);
+}
+
+.card:hover .cardTitle { color: var(--primary); }
+
+.cardDesc {
+  font-size: 0.97rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+/* ── Card Link ── */
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all var(--transition-fast);
+}
+
+.card:hover .cardLink {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html[dir='rtl'] .cardLink svg {
+  transform: scaleX(-1);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; gap: 16px; }
+  .card { padding: 32px 28px; }
+  .header { margin-bottom: 48px; }
+}
